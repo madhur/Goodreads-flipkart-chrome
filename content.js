@@ -68,7 +68,7 @@ class Flipkart {
 
 class Goodreads {
 	static URL = "https://www.goodreads.com";
-	static KEY = "";
+	static KEY = "x3PKQWCYiCsythapsWtcw";
 
 	// Make API calls to Goodreads.
 	// We use this to get the average Goodreads review.
