@@ -37,16 +37,16 @@ class DOM {
 class Flipkart {
 	// Search the page for ISBNs.
 	static findISBN = () => {
-		const bodyHTML = document.body.innerHTML;
+		const bodyHTML = document.body.outerText;
 
 		// Try to find an ISBN-10.
-		const matches = bodyHTML.match("<li><b>ISBN-10:</b> ([0-9A-z]*)</li>");
+		const matches = bodyHTML.match("ISBN: ([0-9A-z]*)");
 		if (matches) {
 			return matches[1];
 		}
 
 		// Fallback to looking for an ISBN-13.
-		const fallbackMatches = bodyHTML.match("<li><b>ISBN-13:</b> ([0-9A-z\-]*)</li>");
+		const fallbackMatches = bodyHTML.match("<li>ISBN: ([0-9A-z\-]*)</li>");
 		if (fallbackMatches) {
 			return fallbackMatches[1];
 		}
@@ -56,23 +56,11 @@ class Flipkart {
 	// There's a few options, prioritized by what looks best.
 	static findAnchorElement = () => {
 		// The thing that shows similar products.
-		const similaritiesBucket = document.getElementsByClassName("bucket");
+		const similaritiesBucket = document.getElementsByClassName("MocXoX");
 		if (similaritiesBucket.length) {
 			return similaritiesBucket[0];
 		}
-
-		// The main product description.
-		const customerReviews = document.getElementById("customerReviews");
-		if (customerReviews) {
-			return customerReviews;
-		}
-
-		// The main product description.
-		const productDescription = document.getElementById("centerCol");
-		if (productDescription) {
-			return productDescription;
-		}
-
+		
 		// Whelp, this blows.
 		return document.body;
 	};
@@ -80,7 +68,7 @@ class Flipkart {
 
 class Goodreads {
 	static URL = "https://www.goodreads.com";
-	static KEY = "GOODREADS_API_KEY";
+	static KEY = "x3PKQWCYiCsythapsWtcw";
 
 	// Make API calls to Goodreads.
 	// We use this to get the average Goodreads review.
@@ -177,19 +165,36 @@ class Goodreads {
 	};
 }
 
-// Search the page for ISBNs.
-const ISBN = Flipkart.findISBN();
+window.addEventListener("load", startLoading, false);
 
-// Search the page for element the widget should anchor itself to.
-const anchorElement = Flipkart.findAnchorElement();
+function startLoading() {
 
-// Make sure we have an isbn and an anchor.
-if (ISBN && anchorElement) {
-	// Create and append the widget.
-	Goodreads.createReviewsWidget({ isbn: ISBN }).then((widget) => {
-		DOM.appendAfterElement(anchorElement, widget);
-	});
+	//var jsInitChecktimer = setInterval(checkForJS_Finish, 111);
+
+	// function checkForJS_Finish() {
+	// 	if (document.querySelector("SOME_INDICATOR_NODE_css_SELECTOR")
+	// 	) {
+	// Search the page for ISBNs.
+	const ISBN = Flipkart.findISBN();
+
+	// Search the page for element the widget should anchor itself to.
+	const anchorElement = Flipkart.findAnchorElement();
+
+	// Make sure we have an isbn and an anchor.
+	if (ISBN && anchorElement) {
+		// Create and append the widget.
+		Goodreads.createReviewsWidget({ isbn: ISBN }).then((widget) => {
+			DOM.appendAfterElement(anchorElement, widget);
+		});
+	}
+
+	//clearInterval(jsInitChecktimer);
+	// DO YOUR STUFF HERE.
+	//}
 }
+
+
+
 
 
 
