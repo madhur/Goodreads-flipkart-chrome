@@ -1,9 +1,9 @@
 {
-  "name": "Goodreads for Amazon",
-  "version": "0.1.5",
+  "name": "Goodreads for Flipkart",
+  "version": "1.0",
   "manifest_version": 2,
-  "description": "See Goodreads reviews on Amazon",
-  "homepage_url": "https://ruben.codes",
+  "description": "See Goodreads reviews on Flipkart",
+  "homepage_url": "https://madhur.co.in",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -24,23 +24,7 @@
         "content.js"
       ],
       "matches": [
-        "https://*.amazon.ae/*",
-        "https://*.amazon.ca/*",
-        "https://*.amazon.cn/*",
-        "https://*.amazon.com/*",
-        "https://*.amazon.com.au/*",
-        "https://*.amazon.com.br/*",
-        "https://*.amazon.com.mx/*",
-        "https://*.amazon.com.sg/*",
-        "https://*.amazon.com.tr/*",
-        "https://*.amazon.co.jp/*",
-        "https://*.amazon.co.uk/*",
-        "https://*.amazon.de/*",
-        "https://*.amazon.fr/*",
-        "https://*.amazon.es/*",
-        "https://*.amazon.in/*",
-        "https://*.amazon.it/*",
-        "https://*.amazon.nl/*"
+        "https://*.flipkart.com/*"
       ]
     }
   ],

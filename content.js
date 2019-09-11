@@ -34,7 +34,7 @@ class DOM {
 	};
 }
 
-class Amazon {
+class Flipkart {
 	// Search the page for ISBNs.
 	static findISBN = () => {
 		const bodyHTML = document.body.innerHTML;
@@ -178,10 +178,10 @@ class Goodreads {
 }
 
 // Search the page for ISBNs.
-const ISBN = Amazon.findISBN();
+const ISBN = Flipkart.findISBN();
 
 // Search the page for element the widget should anchor itself to.
-const anchorElement = Amazon.findAnchorElement();
+const anchorElement = Flipkart.findAnchorElement();
 
 // Make sure we have an isbn and an anchor.
 if (ISBN && anchorElement) {
