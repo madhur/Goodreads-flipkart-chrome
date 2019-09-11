@@ -60,7 +60,7 @@ class Flipkart {
 		if (similaritiesBucket.length) {
 			return similaritiesBucket[0];
 		}
-		
+
 		// Whelp, this blows.
 		return document.body;
 	};
@@ -68,7 +68,7 @@ class Flipkart {
 
 class Goodreads {
 	static URL = "https://www.goodreads.com";
-	static KEY = "x3PKQWCYiCsythapsWtcw";
+	static KEY = "";
 
 	// Make API calls to Goodreads.
 	// We use this to get the average Goodreads review.
